@@ -18,10 +18,12 @@
     "logic",
     "database"
   ],
-  "repository": "ramniquesingh/rbac2",
-  "author": "Ramnique Singh <mail@ramniquesingh.name> (http://twitter.com/ramniquesingh)",
+  "repository": "luislobo/rbac2",
+  "author": "Luis Lobo Borobia <luislobo@gmail.com> (https://lobo.com.ar/)",
   "contributors": [
-    "Jigar Jain <jjain91@gmail.com> (http://twitter.com/ragij)"
+    "Jigar Jain <jjain91@gmail.com> (http://twitter.com/ragij)",
+    "Ramnique Singh <mail@ramniquesingh.name> (http://twitter.com/ramniquesingh)",
+    "Galvin Aiken"
   ],
   "license": "MIT",
   "dependencies": {
