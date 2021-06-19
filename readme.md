@@ -1,5 +1,5 @@
 # rbac2
-[![NPM version](https://badge.fury.io/js/%40luislobo%2Frbac2.svg)](https://badge.fury.io/js/%40luislobo%2Frbac2) [![Build Status](https://travis-ci.org/luislobo/rbac2.svg?branch=master)](https://travis-ci.org/luislobo/rbac2)
+[![NPM version](https://github.com/luislobo/rbac2/actions/workflows/build.yml/badge.svg))](https://badge.fury.io/js/%40luislobo%2Frbac2) [![Build Status](https://github.com/luislobo/rbac2.svg?branch=master)](https://travis-ci.org/luislobo/rbac2)
 
 Simple RBAC checker with support for context checks.
 
