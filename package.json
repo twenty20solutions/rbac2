@@ -4,7 +4,8 @@
   "description": "Simple RBAC checker with support for context checks.",
   "main": "index.js",
   "scripts": {
-    "test": "PATH=$(npm bin):$PATH mocha --recursive --full-trace --bail --check-leaks --reporter list tests"
+    "lint": "eslint --format codeframe '**/*.js'",
+    "test": "npm run lint && mocha --recursive --full-trace --bail --check-leaks --reporter list tests"
   },
   "keywords": [
     "rbac",
@@ -31,6 +32,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "mocha": "^9.0.1"
+    "mocha": "^9.0.1",
+    "eslint": "^7.29.0"
   }
 }
