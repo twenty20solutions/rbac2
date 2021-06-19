@@ -186,5 +186,8 @@ Install dev dependencies and run:
 npm test
 ```
 
+## Roadmap
+-  Implement support for async/await/promises on `check` and `when` functions 
+
 ## License
 [MIT](LICENSE)
