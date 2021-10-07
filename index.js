@@ -71,12 +71,12 @@ class RBAC {
 }
 
 function toTree(role, rules) {
-  return rules.reduce((arr, rule) => {
-    if (rule.a === role) {
+  return rules.reduce((arr, { a, can, when }) => {
+    if (a === role) {
       arr.push({
-        value: rule.can,
-        when: rule.when,
-        children: toTree(rule.can, rules)
+        value: can,
+        when,
+        children: toTree(can, rules)
       });
     }
     return arr;
@@ -85,7 +85,6 @@ function toTree(role, rules) {
 
 function findPaths(root, permission) {
   const paths = [];
-
   if (root.value === permission) {
     paths.push([root]);
   } else {
@@ -110,7 +109,6 @@ async function checkPath(path, params = {}, checkFullPath) {
       if (!result) {
         return false;
       }
-
     } else if (!checkFullPath) {
       return true;
     }
