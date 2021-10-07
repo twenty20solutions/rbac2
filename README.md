@@ -12,9 +12,9 @@ npm install @twenty20solutions/rbac2
 ## Usage
 ### Simple roles
 ```js
-var RBAC = require('@twenty20solutions/rbac2');
+const RBAC = require('@twenty20solutions/rbac2');
 
-var rules = [
+const rules = [
     {a: 'author', can: 'publish posts'},
     {a: 'editor', can: 'edit posts'},
     {a: 'editor', can: 'author'},
@@ -22,7 +22,7 @@ var rules = [
     {a: 'admin',  can: 'do admin'}
 ];
 
-var rbac = new RBAC(rules);
+const rbac = new RBAC(rules);
 
 // Perform a check
 rbac.check('admin', 'edit posts', function (err, result) {
@@ -33,7 +33,7 @@ rbac.check('admin', 'edit posts', function (err, result) {
 ### Adding context checks
 You can specify context checks in rules by adding a `when` function:
 ```js
-var rules = [
+const rules = [
     {a: 'author', can: 'publish posts'},
     {a: 'editor', can: 'edit posts'},
     {a: 'user',   can: 'editor', when: function (params, callback) {
@@ -66,7 +66,7 @@ as `callback(err, result)`, where `result` should be boolean. (If `err` is not
 #### No subject, role or permission - only hierarchy
 This is valid:
 ```js
-var rules = [
+const rules = [
     {a: 'editor',     can: 'edit posts'},
     {a: 'edit posts', can: 'change post url'}
 ];
@@ -75,7 +75,7 @@ var rules = [
 #### Cyclic hierarchy is NOT supported
 This is invalid:
 ```js
-var rules = [
+const rules = [
     {a: 'admin', can: 'user'},
     {a: 'user',  can: 'admin', when: function (err, callback) {...}}
 ];
@@ -86,7 +86,7 @@ and will result in an indefinite loop.
 #### Conditional and non-conditional paths
 Given these rules:
 ```js
-var rules = [
+const rules = [
     {a: 'editor', can: 'edit posts'},
     {a: 'user',   can: 'editor', when: function (params, callback) {
         // business logic check
@@ -127,11 +127,11 @@ considered to be checked AND successful.
 If the whole path is needed to be checked, then you can instantiate RBAC with an optional second parameter, checkFullPath, or set it after creating the object. It defaults to false, unless set.
 
 ```js
-var RBAC = require('@twenty20solutions/rbac2', true);
+const RBAC = require('@twenty20solutions/rbac2', true);
 ```
 or
 ```js
-var RBAC = require('@twenty20solutions/rbac2');
+const RBAC = require('@twenty20solutions/rbac2');
 RBAC.checkFullPath = true;
 ```
 
@@ -143,7 +143,7 @@ RBAC.checkFullPath = true;
 #### Multiple paths to same permission
 For the following rules:
 ```js
-var rules = [
+const rules = [
     {a: 'editor', can: 'edit posts'},
     {a: 'user',   can: 'editor', when: function (params, callback) {
         // business logic check
@@ -172,13 +172,12 @@ If you have a large/complex set of rules with roles inheriting from other roles,
 To use in-memory caching of the trees, instantiate RBAC with an optional third parameter (cacheTree). Default is false
 
 ```js
-var RBAC = require('@twenty20solutions/rbac2', false, true);
+const RBAC = require('@twenty20solutions/rbac2')(rules, false, true);
 ```
 
 ## Testing
-Install dev dependencies and run:
 ```bash
-npm test
+npm i && npm test
 ```
 
 ## License
