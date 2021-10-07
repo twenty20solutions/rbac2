@@ -7,6 +7,7 @@ enh: a new feature or functionality has been added.
 
 In development
 --------------------------------
+- fix: Remove coverage/nyc/scripts from package
 
 Version 2.0.0 - (2021-10-07)
 --------------------------------
