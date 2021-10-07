@@ -19,8 +19,11 @@
     "logic",
     "database"
   ],
-  "repository": "twenty20solutions/rbac2",
-  "author": "Luis Lobo Borobia <luislobo@gmail.com> (https://lobo.com.ar/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git@github.com/twenty20solutions/rbac2.git"
+  },
+  "author": "Twenty20 Solutions <info@twenty20solutions.com> (https://www.twenty20solutions.com/)",
   "contributors": [
     "Jigar Jain <jjain91@gmail.com> (http://twitter.com/ragij)",
     "Ramnique Singh <mail@ramniquesingh.name> (http://twitter.com/ramniquesingh)",

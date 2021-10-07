@@ -63,9 +63,7 @@ const rules = [
   }
 ];
 
-
 function rbacTest(rbac) {
-
   const expectCheck = (done, value) => (err, res) => {
     if (err) return done(err);
     should.equal(res, value);
@@ -90,6 +88,7 @@ function rbacTest(rbac) {
   it('should work an async conditional is satisfied', (done) => {
     rbac.check('user', 'delete article', { userId: 3 }, expectCheck(done, true));
   });
+
   it('should allow a higher node to ignore conditionals based on "checkFullPath"', (done) => {
     rbac.check('superadmin', 'delete article', expectCheck(done, !rbac.checkFullPath));
   });
@@ -121,6 +120,7 @@ function rbacTestPromise(rbac) {
     async () => rbac.check('user', 'edit article', { userId: 2 }).should.eventually.equal(true));
   it('should work an async conditional is satisfied',
     async () => rbac.check('user', 'delete article', { userId: 3 }).should.eventually.equal(true));
+
   it('should allow a higher node to ignore conditionals based on "checkFullPath"',
     async () => rbac.check('superadmin', 'delete article').should.eventually.equal(!rbac.checkFullPath));
 
@@ -129,7 +129,6 @@ function rbacTestPromise(rbac) {
   it('should propagate conditional errors from promises',
     async () => rbac.check('user', 'do nothing with promises').should.eventually.be.rejected);
 }
-
 
 describe('RBAC w/o caching (callbacks)', () => rbacTest(new RBAC(rules)));
 describe('RBAC when checking full trees', () => rbacTest(new RBAC(rules, true, true)));
