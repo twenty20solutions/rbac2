@@ -7,6 +7,9 @@ enh: a new feature or functionality has been added.
 
 In development
 --------------------------------
+
+Version 2.0.2 - (2021-10-07)
+--------------------------------
 - fix: Remove github config directory from npm package
 
 Version 2.0.1 - (2021-10-07)
