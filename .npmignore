@@ -1,0 +1,6 @@
+test
+.eslint*
+.editorconfig
+.mocharc.js
+.nvmrc
+.nycrc.json

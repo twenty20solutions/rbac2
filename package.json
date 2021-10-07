@@ -1,11 +1,11 @@
 {
-  "name": "@luislobo/rbac2",
+  "name": "@twenty20solutions/rbac2",
   "version": "1.1.3",
   "description": "Simple RBAC checker with support for context checks.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --format codeframe '**/*.js'",
-    "test": "npm run lint && mocha --recursive --full-trace --bail --check-leaks --reporter list tests"
+    "test": "npm run lint && nyc mocha"
   },
   "keywords": [
     "rbac",
@@ -19,20 +19,26 @@
     "logic",
     "database"
   ],
-  "repository": "luislobo/rbac2",
+  "repository": "twenty20solutions/rbac2",
   "author": "Luis Lobo Borobia <luislobo@gmail.com> (https://lobo.com.ar/)",
   "contributors": [
     "Jigar Jain <jjain91@gmail.com> (http://twitter.com/ragij)",
     "Ramnique Singh <mail@ramniquesingh.name> (http://twitter.com/ramniquesingh)",
-    "Galvin Aiken"
+    "Galvin Aiken",
+    "Luis Lobo <luislobo@gmail.com>",
+    "Mudrekh Goderya <mudrekh@gmail.com>",
+    "Keaton Foster <keatonfids@gmail.com>"
   ],
   "license": "MIT",
   "dependencies": {
-    "async": "^3.2.0",
-    "lodash": "^4.17.21"
+    "debug": "^4.3.2"
   },
   "devDependencies": {
-    "mocha": "^9.0.1",
-    "eslint": "^7.29.0"
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "mocha": "^9.1.2",
+    "nyc": "^15.1.0"
   }
 }
