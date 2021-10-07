@@ -7,10 +7,11 @@ enh: a new feature or functionality has been added.
 
 In development
 --------------------------------
+- fix: Remove github config directory from npm package
 
 Version 2.0.1 - (2021-10-07)
 --------------------------------
-- fix: Remove coverage/nyc/scripts from package
+- fix: Remove coverage/nyc/scripts from npm package
 
 Version 2.0.0 - (2021-10-07)
 --------------------------------
