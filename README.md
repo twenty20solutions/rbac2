@@ -10,6 +10,7 @@ npm install @twenty20solutions/rbac2
 ```
 
 ## Usage
+
 ### Simple roles
 ```js
 const RBAC = require('@twenty20solutions/rbac2');
@@ -30,6 +31,30 @@ rbac.check('admin', 'edit posts', function (err, result) {
 });
 ```
 
+### rbac.check
+#### Use callbacks, promises or async/await
+
+```js
+// Using callbacks
+rbac.check('admin', 'edit posts', function (err, result) {
+    // result: true
+});
+
+// Using promises
+rbac.check('admin', 'edit posts')
+  .then(result => {
+    // result: true
+  });
+
+// Using async/await
+const result = await rbac.check('admin', 'edit posts');
+// result: true
+```
+
+If a callback function is not passed, a promise is returned. This will throw an error in later versions of node if a
+promise rejection isn't explicitly handled! All errors from context checks are passed upwards to the calling check
+function.
+
 ### Adding context checks
 You can specify context checks in rules by adding a `when` function:
 ```js
@@ -49,9 +74,20 @@ const rules = [
 ```
 And check by passing context parameters:
 ```js
-rbac.check('user', 'edit posts', {postId: 23, userId:12}, function (err, result) {
+// Callbacks
+rbac.check('user', 'edit posts', { postId: 23, userId:12 }, function (err, result) {
     // ...
 });
+
+// Promises
+rbac.check('user', 'edit posts', { postId: 23, userId:12 })
+  .then((result) => {
+    // ...
+  });
+
+
+// async/await
+const result = await rbac.check('user', 'edit posts', { postId: 23, userId:12 })
 ```
 
 In the code above, we set the rule that any user can become the editor
@@ -169,7 +205,7 @@ immediately.
 ### Caching of rule trees
 If you have a large/complex set of rules with roles inheriting from other roles, generating the tree for the role can take a significant amount of time (tens of milliseconds). To speed up the checks, you can ask rbac to cache the tree for each role once it has been generated, at the expense of slightly more use of memory to hold the cached trees.
 
-To use in-memory caching of the trees, instantiate RBAC with an optional third parameter (cacheTree). Default is false
+To use in-memory caching of the trees, instantiate RBAC with an optional third parameter (cacheTree). Default is false.
 
 ```js
 const RBAC = require('@twenty20solutions/rbac2')(rules, false, true);
