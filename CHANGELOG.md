@@ -7,3 +7,5 @@ enh: a new feature or functionality has been added.
 
 In development
 --------------------------------
+- enh: Initial rewrite of module using async/await and support for promises
+- enh: Paths are now cached in addition to the full tree

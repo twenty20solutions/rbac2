@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --format codeframe '**/*.js'",
-    "test": "npm run lint && nyc mocha"
+    "test": "npm run lint && nyc mocha",
+    "preversion": "/bin/bash ./scripts/preversion.sh",
+    "version": "/bin/bash ./scripts/version.sh"
   },
   "keywords": [
     "rbac",
